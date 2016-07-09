@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Design Document</title>
+	<style type="text/css">
+		body {
+			font-family: "Open Sans", "Arial", sans-serif;
+			margin: 20px;
+			font-size: 16px;
+		}
+		span {
+			margin-left: 10px;
+			color: #999;
+		}
+		ol {
+			list-style-type: none;
+			margin: 20px 0px;
+			padding-left: 20px;
+		}
+		ol li{
+			font-size: 20px;
+			font-weight: bold;
+		}
+		ol li ol li{
+			font-size: 18px;
+			font-weight: normal;
+		}
+		ol li ol li ol li{
+			font-size: 16px;
+			font-weight: bold;
+		}
+		ol li ol li ol li ol li{
+			font-weight: normal;
+		}
+		li span{
+			margin-left: -20px;
+			margin-right: 5px;
+			color:black;
+		}
+		li p{
+			font-weight: normal;
+			margin-left: -20px;
+		}
+		img{
+			display:block;
+			margin:30px 0px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Design Document: USPS Mailing Address Formalization System<span>Team 2</span></h1>
+	<p>
+		March 22, 2016 
+	  (Last Updated: March 31, 2016 by Aaron Gershman)
+	</p>
+
+	<p>
+		Person Responsible for Document: Aaron Gershman
+	</p>
+
+	<h2>Purpose</h2>
+	<p>
+		This architectural design document aims to establish an overall architectural design for the USPS Mailing Address Formalization System. The design discussed in this document was formed based on the requirements document produced after the interview with the client, Jon Beck. This document offers use cases, a high level architectural design featuring a specific design style, and reasoning for design choices.
+	</p>
+
+	<p>
+	Please note: numbers here refer to the requirements document
+	</p>
+
+	<ol>
+
+		<!-- USE CASES -->
+		<li>
+			<span>1</span> Use Cases
+			<ol>
+				<li>
+					<span>i</span> Bulk Address Processing (2.1.2, 3.2, 4)
+					<ol>
+						<li>
+							<span>Description</span> 
+							<p>
+								In bulk address processing, a user will provide a list of addresses that need to be formalized. After running the batch of addresses, the program will output all formalized addresses into a file and all addresses that could not be formalized into another. These two files will be placed in a chosen output location.
+							</p>
+						</li>
+						<li>
+							<span>Flow</span> 
+							<ol>
+								<li>
+									<span>1</span> The user is presented a graphical interface with two options, bulk or single address formalization.
+								</li>
+								<li>
+									<span>2</span> The user selects bulk address option and is prompted by the system to select a file location of addresses.
+								</li>
+								<li>
+									<span>3</span> The user selects one file containing only addresses separated by commas.
+								</li>
+								<li>
+									<span>4</span> The system prompts the user to select an output location for the two output files.
+								</li>
+								<li>
+									<span>5</span> The user selects the output location and clicks begin.
+								</li>
+								<li>
+									<span>6</span> The system processes all the addresses, formalizing them based on the United States Postal Service guidelines and verifying the addresses based on zip code. 
+								</li>
+								<li>
+									<span>7</span> The system writes all the addresses to the two comma separated output files. All addresses that could be formalized and verified in one document named accordingly, and all that could not in another.
+								</li>
+								<li>
+									<span>8</span> The system will display a report of the batch process, including the number of formalized addresses and the number of addresses which could not be formalized or verified.
+								</li>
+								<li>
+									<span>9</span> The user closes the report and the system displays the starting screen of the application with the two options for address formalization.
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<span>ii</span> Single Address Processing (2.1.1, 3.1)
+					<ol>
+						<li>
+							<span>Description</span> 
+							<p>
+								In single address processing, a user will provide an address that needs to be formalized. After trying to formalize the address, the program will display the formalized address or a message saying it could not be verified. The user will be able to enter any number of addresses one after another, but only one at a time.
+							</p>
+						</li>
+						<li>
+							<span>Flow</span> 
+							<ol>
+								<li>
+									<span>1</span> The user is presented a graphical interface with two options, bulk or single address formalization.
+								</li>
+								<li>
+									<span>2</span> The user selects single address option.
+								</li>
+								<li>
+									<span>3</span> The system prompts the user to enter an address by displaying a graphic with 5 input boxes. The input is street address, city, state, zip-5, and zip-4. 
+								</li>
+								<li>
+									<span>4</span> The user enters the address data into the input boxes, and selects the formalize button. Each box is required to have data entered into it.
+								</li>
+								<li>
+									<span>5</span> The system formalizes the address based on the United States Postal Service guidelines 
+								</li>
+								<li>
+									<span>6</span> The system displays the formalized address along with the old address to the screen if the address could be formalized. If the address could not be formalized, the old address is displayed to the screen, along with any reason it could not be formalized. 
+								</li>
+								<li>
+									<span>7</span> The system presents options to the user to formalize a new address, change data in the previous address, or go to the home screen.
+								</li>
+								<li>
+									<span>8</span> The user selects an option, and is returned to the desired location. If the user decides to change data in the previously entered address, the address input screen will be displayed with the previous address in the text fields. The user can repeat this process for any number of addresses, though only one can be entered at once.
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+
+		<!-- LANGUAGE -->
+		<li>
+			<span>2</span> Language: Python 3.4+
+			<ol>
+				<li>
+					<span>i</span> Python code is generally more readable and clean compared to the verbosity of Java.
+				</li>
+				<li>
+					<span>ii</span> Python supports multi-paradigm styles, such as object-oriented, functional, etc.
+				</li>
+				<li>
+					<span>iii</span> Python does not require a special IDE to develop in. Something as simple as a text editor can produce viable code.
+				</li>
+				<li>
+					<span>iv</span> Python is a very portable language, and is supported on nearly all machines. 
+				</li>
+				<li>
+					<span>v</span> There are numerous graphics packages for portable user interface design, such as Tkinter.
+				</li>
+				<li>
+					<span>vi</span> Python has a healthy and active open-source community which maintains a large number of tools, packages, and tutorials.
+				</li>
+			</ol>
+		</li>
+
+
+		<!-- ARCHITECTURAL PATTERN -->
+		<li>
+			<span>3</span> Architectural Pattern
+			<ol>
+				<li><span>i</span> 
+					At a high-level overview, the "main-subroutine" architectural pattern works best because it is simple and modular. Each step in the process is a distinct subroutine. New features could easily added without interfering with existing structure.
+				</li>
+				<li><span>ii</span>
+					Here is a UML diagram:
+					<img src = "design_diagram.jpeg" alt="UML diagram of design architecture">
+				</li>
+				<li><span>iii</span>
+					The bulk of the operations involving editing addresses will be done in the "AddressFormatter" class, which will aggregate addresses to be edited. After performing a series of methods on the address, the output will be a properly USPS formatted address.
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

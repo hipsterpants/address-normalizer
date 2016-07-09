@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Client Questions</title>
+    <style type="text/css">
+	    body {
+	    	font-family: "Open Sans", "Arial", sans-serif;
+	    	margin: 80px;
+	    	line-height: 26px;
+	    	font-size: 16px;
+	    }
+	    h1{
+	    	font-size: 40px;
+	    	font-weight: 500;
+	    	margin: 10px 0px;
+	    	line-height: 50px;
+	    }
+	    h1 span, p span {
+	    	color: #999;
+	    	margin-left: 8px;
+	    }
+	    h1 span{
+	    	font-size: 30px;
+	    }
+	    h2 {
+	    	font-size: 30px;
+	    	font-weight: 300;
+	    	line-height: 40px;
+	    	margin: 40px 0px 0px 0px;
+	    }
+	    p {
+	    	font-size: 18px;
+	    	line-height: 28px;
+	    	margin: 0px;
+	    }
+	    ul li span {
+	    	font-weight: 600;
+	    }
+	    ol {
+	    	list-style-type: none;
+	    	margin-top: 40px;
+	    }
+	    ol > li {
+	    	font-size: 30px;
+	    	line-height: 40px;
+	    	margin-bottom: 20px;
+	    	font-weight: 300;
+	    }
+	    ol > li > ol {
+	    	margin-top: 10px;
+	    }
+	    ol > li > ol > li {
+	    	font-size: 20px;
+	    	line-height: 32px;
+	    	margin-bottom: 5px;
+	    	font-weight: normal;
+	    }
+	    ol > li > ol > li > ol {
+	    	margin-top: 5px;
+	    }
+	    ol > li > ol > li > ol > li {
+	    	font-size: 16px;
+	    	line-height: 26px;
+	    	margin-bottom: 5px;
+	    }
+	    ol li span {
+	    	margin-left: -40px;
+	    	margin-right: 5px;
+	    	width: 10px;
+	    }
+    </style>
+  </head>
+  <body>
+    <h1>Developer-Client Meeting Questions <span>Team 2</span></h1>
+    <p>
+    	February 8, 2016 <span>( Last Updated: February 10th, 2016 by 
+    	Jessica DiMariano )</span>
+    </p>
+
+    <h2>Purpose</h2>
+    <p>
+    	The client has asked our team to develop a tool for standardizing 
+    	postal addresses. The questions listed on this document	will be 
+    	asked when interviewing the client. By identifying the users, goals, 
+    	functionality, and success metrics, these questions aim to understand 
+    	the needs of the client. The answers to our questions 
+    	will aid our team in the creation of a requirements document.
+    </p>
+
+	<ol>
+		<li>
+			<span>1)</span> Questions Related to the User:
+			<ol>
+				<li>
+					<span>1.a</span> Who will be using this system?
+					<ol>
+						<li>
+							<span>1.a.i</span> Do you want restrictions on who 
+							should be able to use this system? For example, 
+							would you only want a manager to be able to use 
+							this?
+						</li>
+						<li>
+							<span>1.a.ii</span> How experienced with 
+							technology do you expect a user of this system to 
+							be?  
+							<ol>
+								<li>
+									<span>1.a.ii.1</span> Would they be 
+									comfortable with a command-line?
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<span>1.b</span> Will the user be at their computer the 
+					entire time while the program is running or will the 
+					program be started and left? 
+				</li>
+			</ol>
+		</li>
+		<li>
+			<span>2)</span> Questions Related to Processing the Data Itself:
+			<ol>
+				<li>
+					<span>2.a</span> Will this software need to interact with 
+					the internet at all?
+				</li>
+				<li>
+					<span>2.b</span> How many addresses do you want the system 
+					to process at a time? 
+				</li>
+				<li>
+					<span>2.c</span> Will you be using a collection of 
+					addresses or will they be entered one at a time manually?				
+				</li>
+				<li>
+					<span>2.d</span> How should the software handle an 
+					address or zip code mismatch?				
+				</li>
+				<li>
+					<span>2.e</span> Does the software need to detect if a 
+					particular address does not exist?
+					<ol>
+						<li>
+							<span>2.e.i</span> What do you want the system to 
+							do if it recognizes that a particular address 
+							does not exist?
+						</li>
+					</ol>				
+				</li>
+				<li>
+					<span>2.f</span> How much of an address should be 
+					automatically filled in if parts are missing?
+				</li>
+				<li>
+					<span>2.g</span> Do you want this system to be able to 
+					identify if an address is not actually present in the US? 			
+				</li>
+				<li>
+					<span>2.h</span> What do you want the system to do if it 
+					recognizes a common spelling error?
+				</li>
+				<li>
+					<span>2.i</span> How much tolerance would you have for the 
+					system making a mistake?
+					<ol>
+						<li>
+							<span>2.i.1</span> Are there any mistakes the 
+							system might make that you would consider 
+							acceptable?
+						</li>
+					</ol>
+				</li>
+				<li>
+					<span>2.j</span> How fast do you need this system to be? 
+
+				</li>
+				<li>
+					<span>2.k</span> How much configuration and customization 
+					should the software have at its disposal? 
+					<ol>
+						<li><span>2.k.1</span> Should there be anything more 
+							than a “Run Program”-type button, or should it 
+							handle custom editing fields such as “Capitalize 
+							First Letters” instead of “ALL CAPS” as per USPS 
+							standards?
+						</li>
+						<li><span>2.k.2</span> Do you want a user or a manager 
+							of the system to be able to make any modifications 
+							or do you want to leave it up to the developers 
+							themselves?
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+		<li>
+			<span>3)</span> Questions Relating to Input and Output
+			<ol>
+				<li>
+					<span>3.a</span> If this system is taking in addresses 
+					from a collection, do you want it to replace those 
+					addresses with the new corrected addresses or do you want 
+					a new collection to be started?
+				</li>
+				<li>
+					<span>3.b</span> How will the addresses be given to the 
+					software?
+					<ol>
+						<li>
+							<span>3.b.i</span> If a user is entering an 
+							address, will they be entering the information 
+							into separate fields such as “zip code” or “state”? 
+						</li>
+						<li>
+							<span>3.b.ii</span> If there is a collection of 
+							addresses, would the address be divided by zip 
+							code, state, etc?
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+		<li>
+			<span>4)</span> Miscellaneous Questions
+			<ol>
+				<li>
+					<span>4.a</span> How will the common user be interacting 
+					with the software?
+				</li>
+				<li>
+					<span>4.b</span> On what platform will this software be 
+					interfacing? (e.g., a desktop computer? A server command-
+					line? If so, what kind of operating system? What server 
+					version?)
+				</li>
+				<li>
+					<span>4.c</span> What kind of system capabilities can we 
+					expect?
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+
+  </body>
+</html>

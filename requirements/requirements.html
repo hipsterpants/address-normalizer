@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Client Questions</title>
+	<style type="text/css">
+		body {
+			font-family: "Open Sans", "Arial", sans-serif;
+			margin: 40px;
+			line-height: 26px;
+			font-size: 12px;
+		}
+		h1{
+			font-size: 16px;
+			font-weight: 500;
+			margin: 10px 0px;
+			line-height: 50px;
+		}
+		h1 span, p span {
+			color: #999;
+			margin-left: 8px;
+		}
+		h1 span{
+			font-size: 16px;
+		}
+		h2 {
+			font-size: 14px;
+			font-weight: 300;
+			line-height: 40px;
+			margin: 40px 0px 0px 0px;
+		}
+		p {
+			font-size: 12px;
+			line-height: 28px;
+			margin: 0px;
+		}
+		ul li span {
+			font-weight: 600;
+		}
+		ol {
+			list-style-type: none;
+			margin-top: 40px;
+		}
+		ol > li {
+			font-size: 12px;
+			line-height: 40px;
+			margin-bottom: 20px;
+			font-weight: 300;
+		}
+		ol > li > ol {
+			margin-top: 10px;
+		}
+		ol > li > ol > li {
+			font-size: 12px;
+			line-height: 32px;
+			margin-bottom: 5px;
+			font-weight: normal;
+		}
+		ol > li > ol > li > ol {
+			margin-top: 5px;
+		}
+		ol > li > ol > li > ol > li {
+			font-size: 12px;
+			line-height: 26px;
+			margin-bottom: 5px;
+		}
+		ol li span {
+			margin-left: -40px;
+			margin-right: 5px;
+			width: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>USPS Mailing Address Formalization System Requirements Document<span>Team 2</span></h1>
+	<p>
+		February 15, 2016 <span> (Last Updated: April 11th, 2016 by 
+		Aaron Gershman)</span>
+	</p>
+
+	<p>
+		Person Responsible for Document: Aaron Gershman
+	</p>
+
+	<h2>Purpose</h2>
+	<p>
+		This is the requirements document for a USPS Mailing Address Formalization System. The document is formed based on the questions the client was asked during an interview on February 12th, 2016 in Violette Hall 1328 at Truman State University. The client contact spoken to was Dr. Jon Beck. The USPS Mailing Address Formalization System (colloquially known as “USPSMAFS”) is a tool to convert mailing addresses into the United States Postal Services’ standards for domestic U.S. mail. This requirements outline is an evolving document, and is subject to change in accordance to the needs of the client and the system itself.
+	</p>
+
+	<ol>
+		<li>
+			<span>1</span> Success Criteria
+			<ol>
+				<li>
+					<span>1.1</span> A successful implementation of USPSMAFS will...
+					<ol>
+						<li>
+							<span>1.1.1</span> convert supplied valid addresses into the USPS standard, and
+
+						</li>
+						
+						<li>
+							<span>1.1.2</span> reject invalid addresses, making the user aware that these addresses could not be formalized.
+						</li>
+
+					</ol>
+					<span>1.2</span> This metric assumes...
+					
+					<ol>
+						<li>
+							<span>1.2.1</span> all supplied addresses are spelled correctly, and
+						</li>
+						<li>
+							<span>1.2.2</span> all supplied addresses are complete (e.g., include a ZIP code), and
+						</li>
+						<li>
+							<span>1.2.3</span> the system will not verify if an address actually exists (e.g., “123 Happy Street, Kirksville MO 63501-9999” will be properly formalized, but whether the address exists cannot be determined).
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+
+
+		<!-- hey there. This is a section break ;)-->
+
+
+		<li>
+			<span>2</span> Functional Requirements
+			<ol>
+				<li> 
+					<span>2.1</span> The user will have access to two different validation modes: individual address mode, and bulk address mode.  (1.a.ii, 2.c, 4.a)
+
+					<ol>
+						<li>
+							<span>2.1.1</span> Individual address mode allows the user to enter in an address into separate fields (street address, city, state, zip-5, zip-4), and the system will give back a formalized address. (3.b)
+
+						</li>
+						<li>
+							<span>2.1.2</span> Bulk address mode allows the user to load a source file of addresses, run the program, and two output files will be generated: one of formalized addresses, and the other of addresses which could not be validated. (3.b)
+
+						</li>
+					</ol>
+				</li> 
+			</ol>
+		</li>
+
+
+		<!-- hey there. This is a section break ;)-->
+
+
+		<li>
+			<span>3</span> Functional Requirements: Scenarios
+			<ol>
+				<li> 
+					<span>3.1</span> User “Moses” starts the USPSMAFS on their computer, and is presented with a mainscreen showing two mode options. Moses would like to formalize a single address, so they select the “individual address mode.” (4.a, 2.c)
+
+					<ol>
+						<li>
+							<span>3.1.1</span> Moses enters the address into separate address fields (e.g., street address, city, state, zip-5, zip-4). (3.b.i)
+
+						</li>
+						<li>
+							<span>3.1.2</span> The formalized address is then displayed on screen alongside the address originally entered. (3.b.i)
+
+						</li>
+					</ol>
+				</li> 
+				<li> 
+					<span>3.2</span> User “Jesus of Nazareth” would like to formalize their address database in bulk. Jesus opens the USPSMAFS, and selects “bulk address mode.” (4.a)
+
+					<ol>
+						<li>
+							<span>3.2.1</span> Jesus clicks the “input file source” button, and navigates to the input file location. (4.a)
+
+						</li>
+						<li>
+							<span>3.2.2</span> Jesus clicks the “output file destination” button, and chooses where they would like the output file to be. (4.a)
+
+						</li>
+						<li>
+							<span>3.2.3</span> Jesus then clicks the “run USPSMAFS” button, upon which the system begins the formalization process. A status bar is displayed to inform Jesus that the system is running. (4.a)
+
+						</li>
+						<li>
+							<span>3.2.4</span> When the system is finished, Jesus is presented with a “Summary Report” prompt. Jesus is told that 6,920 addresses were properly formalized and saved to output, but 40 addresses were invalid, and saved to a different output. (4.a)
+
+						</li>
+					</ol>
+				</li> 
+			</ol>
+		</li>
+
+
+		<!-- hey there. This is a section break ;)-->
+
+		<li>
+			<span>4</span> Nonfunctional Requirements: Bulk Address Mode
+			<ol>
+				<li> 
+					<span>4.1</span> The bulk address mode should allow the user to specify both the input and output file destinations. (3.a)
+				</li>
+
+				<li> 
+					<span>4.2</span> The bulk address mode will not overwrite or modify the input data file in any way. All modifications made to the data are to be saved in a different output. (3.a)
+				</li>
+
+				<li> 
+					<span>4.3</span> The order of the output file should be preserved as from the input file. (4.a)
+				</li>
+
+				<li> 
+					<span>4.4</span> The presumed input file type will be a CSV file. (3.b)
+				</li>
+
+				<li> 
+					<span>4.5</span> The presumed output file type will be a CSV file. (3.b)
+				</li>
+
+				<li> 
+					<span>4.6</span> Must be able to handle, at least, up to 50,000 entries. (2.b)
+				</li>
+
+
+			</ol>
+		</li>
+
+
+		<!-- hey there. This is a section break ;)-->
+
+		<li>
+			<span>5</span> Nonfunctional Requirements: General
+			<ol>
+				<li> 
+					<span>5.1</span> Must be portable to linux/mac/windows. (4.b, 4.c)
+
+				</li>
+				<li> 
+					<span>5.2</span> Must be accessible as a standalone program on standard laptop/desktop environments. (4.b, 4.c)
+
+				</li>
+				<li> 
+					<span>5.3</span> Should be able to handle the different kinds of addresses as described in P28 of the USPS formatting manual. Specifically, BUSINESS and HOME addresses. No names on the addresses will be included. (2.k.2)
+
+				</li>
+				<li> 
+					<span>5.4</span> The scope of the system pertains to U.S. Addresses. Standardizing to outside nations such as Canada or Mexico are outside the scope of this program. (2.g)
+				</li>
+				<li> 
+					<span>5.5</span> The standard user interface will be through a GUI. (4.a, 1.a.ii, 1.a.iii)
+
+				</li>
+			</ol>
+		</li>
+
+
+		<!-- hey there. This is a section break ;)-->
+
+		<li>
+			<span>6</span> Nongoals of USPSMAFS
+			<ol>
+				<li> 
+					<span>6.1</span> No time or space requirements. (2.j)
+
+				</li>
+				<li> 
+					<span>6.2</span> No need to sort the data. (3.a)
+
+				</li>
+				<li> 
+					<span>6.3</span> No option to customize formatting options (e.g., the system only needs to adhere to USPS P28 standards). (2.k.1, 2.k.2)
+
+				</li>
+				<li> 
+					<span>6.4</span> No need to fix spelling mistakes. (2.i, 2.h)
+
+				</li>
+				<li> 
+					<span>6.5</span> No need to attempt to fill missing data (e.g., attempting to fill in missing ZIP information). (2.d)
+
+				</li>
+				<li> 
+					<span>6.6</span> No need to catch duplicate entries. (2.d)
+
+				</li>
+				<li> 
+					<span>6.7</span> No need to confirm if an address actually exists or not. (2.g, 2.d)
+
+				</li>
+				<li> 
+					<span>6.8</span> No need for user security authentication. (2.a, 4.a, 4.b)
+
+				</li>
+			</ol>
+		</li>
+
+
+		<!-- hey there. This is a section break ;)-->
+
+
+		<li>
+			<span>7</span> Glossary, definitions, abbreviations, or acronyms as needed:
+			<ol>
+				<li> 
+					<span>7.1</span> USPSMAFS: United States Postal Service Mailing Address Formalization System
+				</li>
+				<li> 
+					<span>7.2</span> Complete address: all address fields (street address, city, state, zip-4, zip-5) are filled in with data.
+				</li>
+				<li> 
+					<span>7.3</span> Valid address: an address which is complete, and the data can be properly formatted (e.g., the “State” field contains “Missouri,” which can be formalized into “MO”)
+				</li>
+				<li> 
+					<span>7.4</span> Formalized address: an address which has been successfully converted into the USPS P28 mailing standard.
+				</li>
+			</ol>
+		</li>
+
+
+		<!-- hey there. This is a section break ;)-->
+
+
+	</ol>
+
+
+</body>
+</html>
